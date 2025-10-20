@@ -1,11 +1,24 @@
 const fs = require("node:fs")
+const process = require("process")
 const express = require('express')
 const app = express()
 const port = 3000
+const cwd = process.cwd()
 
 app.use((req, res, next) => {
-    console.log(`Request recieved at ${req.url}`)
+    let url = req.url
+    console.log(`Request recieved at ${url}`)
+    if (url.includes('..')) {
+        res.status(400).send("Fuck you")
+        return
+    }
+    fs.readFile(`${cwd}${url}`, 'utf-8', (err, data) => {
+        if (err) {
+            res.status(500).send('404')
+        }
+        res.status(200).send(data)
+    })
 })
 
-app.get('/', (req, res) => res.send('Hello World!'))
+console.log(`CWD: ${[process.cwd()]}`)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

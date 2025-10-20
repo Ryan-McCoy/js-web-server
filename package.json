@@ -1,0 +1,20 @@
+{
+  "name": "js-web-server",
+  "version": "1.0.0",
+  "description": "A simple, custom web server written in NodeJS",
+  "homepage": "https://github.com/Ryan-McCoy/js-web-server#readme",
+  "bugs": {
+    "url": "https://github.com/Ryan-McCoy/js-web-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan-McCoy/js-web-server.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "Ryan McCoy",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

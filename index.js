@@ -8,7 +8,7 @@ const cwd = process.cwd()
 
 app.use((req, res, next) => {
     if (req.method !== "GET") {
-        res.status(418).send("418 I'm A Teapot. The server is only capable of handelling GET requests.")
+        res.status(405).send("405 Method Not Allowed")
         return
     }
     let url = req.url
